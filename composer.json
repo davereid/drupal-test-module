@@ -1,0 +1,7 @@
+{
+    "name": "drupal/github-action-test",
+    "description": "Test module for working with Github actions.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/davereid/drupal-test-module",
+    "license": "GPL 2.0+"
+}
