@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: build
+      run: git archive --format=tar.gz -o archive.tar.gz ${CIRCLE_SHA1}
+    - name: create release
+      uses: codfish/semantic-release-action@v1
+      if: success()
+      id: version
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: |
+      echo $RELEASE_VERSION
+      echo $RELEASE_MAJOR
+      echo $RELEASE_MINOR
+      echo $RELEASE_PATCH
