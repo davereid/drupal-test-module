@@ -1,0 +1,4 @@
+name: Github Action Test
+type: module
+description: Test module for Github actions
+core: 8.x
